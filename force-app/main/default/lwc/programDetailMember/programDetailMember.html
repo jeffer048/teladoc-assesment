@@ -1,0 +1,23 @@
+<template>
+	<lightning-card	title="Programs"	icon-name="standard:medication_ingredient">
+			<template	if:true={programs}>
+				<div class="slds-form">
+					<template	for:each={programs}	for:item="program">
+					<div class="slds-form-element slds-form-element_horizontal" key={program.Id}>
+						<label class="slds-form-element__label" for="horizontal-input-id-01">{program.Name}</label>
+						<div class="slds-form-element__control">
+							<lightning-combobox
+										name="programStatus"
+										value={program.Status__c}
+										options={programStatus}
+										>
+									</lightning-combobox>
+						</div>
+					</div>
+				</template>
+				</div>
+			</template>
+			<lightning-button	label="Save"	onclick={savePrograms}></lightning-button>
+	</lightning-card>
+
+</template>
